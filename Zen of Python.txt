@@ -1,3 +1,5 @@
 Zen of Python!!!
+2.Explicit is better than implicit.
+6. Sparse is better than dense.
 9.Although practicality beats purity.
 12.In the face of ambiguity, refuse the temptation to guess.
