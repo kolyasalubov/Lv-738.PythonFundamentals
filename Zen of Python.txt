@@ -1,1 +1,2 @@
 Zen of Python!!!
+9.Although practicality beats purity.
