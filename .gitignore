@@ -130,3 +130,6 @@ dmypy.json
 
 # MacOS system files
 .DS_Store
+
+# Idea files
+.idea/
