@@ -13,6 +13,7 @@ Zen of Python!!!
 18.If the implementation is easy to explain, it may be a good idea.
 20.Beautiful is better than ugly.
 21.Explicit is better than implicit.
+22.Simple is better than complex.
 25.Sparse is better than dense.
 26.Readability counts.
 30.Unless explicitly silenced.
