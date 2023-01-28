@@ -57,6 +57,9 @@ text = """The Zen of Python, by Tim Peters
 55.If the implementation is easy to explain, it may be a good idea.
 56.Namespaces are one honking great idea -- let's do more of those!"""
 
+# #
+# # Find the number of occurrences of the words "better", "never" and "is" in the given line
+# # 
 word_better = text.count("better")
 print(f"Number of words \"better\" : {word_better}")
 word_never = text.count("never")
@@ -65,9 +68,15 @@ word_is = text.count("is")
 print(f"Number of words \"is\" : {word_is}")
 print("")
 
+# #
+# # You need to display all text in uppercase (all letters in uppercase)
+# #
 print(text.upper())
 print("")
 
+# #
+# # Replace all occurrences of the symbol “i” with “&”
+# #
 print(text.replace("i", "&"))
 print("")
 
