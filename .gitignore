@@ -133,3 +133,6 @@ dmypy.json
 
 # Idea files
 .idea/
+
+# VisualStudo files
+.vscode/
