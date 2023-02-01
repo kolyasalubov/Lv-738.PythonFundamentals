@@ -13,7 +13,6 @@ Zen of Python!!!
 15.Now is better than never.
 35.Although never is often better than *right* now.
 18.If the implementation is easy to explain, it may be a good idea.
-19.Namespaces are one honking great idea -- let's do more of those!
 20.Beautiful is better than ugly.
 21.Explicit is better than implicit.
 25.Sparse is better than dense.
