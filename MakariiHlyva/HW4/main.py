@@ -1,7 +1,5 @@
 #-------------Calculate factorial of natural number, which will be entered by user, without using recurcion----------------
 
-from math import factorial
-
 # Getting value from user and checking if it's correct
 
 while True:
@@ -16,4 +14,12 @@ while True:
         break
 
 # Calculating factorial of entered number and printing result
-print(f"Factorial of {number} is {factorial(number)}")
+
+match number:
+    case 1:
+        print(f"Factorial of {number} = {number}")
+    case other:
+        result = 1
+        for counter in range(2, number + 1, 1):
+            result *= counter
+        print(f"Factorial of {number} = {result}")
