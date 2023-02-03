@@ -4,9 +4,9 @@ file = open("python.txt", "r")
 data_from_file = file.read()
 
 # Find quantity of different word is file
-quantity_of_better = data_from_file.find('better')
-quantity_of_never = data_from_file.find('never')
-quantity_of_is = data_from_file.find("is")
+quantity_of_better = data_from_file.count('better')
+quantity_of_never = data_from_file.count('never')
+quantity_of_is = data_from_file.count("is")
 
 # Printing results
 print(f"Quantity of word 'better' in Zen of Python is - {quantity_of_better}")
