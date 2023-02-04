@@ -2,6 +2,7 @@
 # If the login is "First", then greet the users. If the login is different, send an error message.
 # (need to use loop while)
 
+# with count
 
 count=0
 
@@ -14,5 +15,11 @@ while count < 5:
         print('Access denied. Try again.')
         count += 1
 
+# without count
+
+while input('Enter login: ') != 'First':
+    print('Access denied. Try again.')
+else:
+    print('Successful login')
 
       
