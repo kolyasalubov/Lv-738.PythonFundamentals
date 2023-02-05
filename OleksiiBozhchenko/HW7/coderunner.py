@@ -1,7 +1,7 @@
 print("")
 print("Task 1")
-# Given a list of numbers and a value n, write a function that returns the probability of choosing a number greater than or equal to n from the list. The probability should be expressed as a percentage, rounded to one decimal place.
-
+# Given a list of numbers and a value n, write a function that returns the probability of choosing a number greater 
+# than or equal to n from the list. The probability should be expressed as a percentage, rounded to one decimal place.
 # Notes. Precent probability of event = 100 * (num of favourable outcomes) / (total num of possible outcomes)
 def probability(lst, num):
   greater=[]
@@ -19,7 +19,8 @@ print(probability([5, 1, 8, 9], 6))
 print("")
 print("Task 2")
 
-# Given a list of numbers, create a function which returns the list but with each element's index in the list added to itself. This means you add 0 to the number at index 0, add 1 to the number at index 1, etc...
+# Given a list of numbers, create a function which returns the list but with each element's index in the list added to itself. 
+# This means you add 0 to the number at index 0, add 1 to the number at index 1, etc...
 
 def add_indexes(lst):
   res = []
@@ -52,10 +53,9 @@ print(find_odd([12.3,13,23,23,23,12,13,18,17]))
 
 print("")
 print("Task 4")
-# Given an unsorted list, create a function that returns the n-th smallest integer (the smallest integer is the first smallest, the second smallest integer is the second smallest, etc).
-
+# Given an unsorted list, create a function that returns the n-th 
+# smallest integer (the smallest integer is the first smallest, the second smallest integer is the second smallest, etc).
 # Notes
-
 # n will always be >= 1.
 # Each number in the array will be distinct (there will be a clear ordering).
 # Given an out of bounds parameter (e.g. a list is of size k), and you are asked to find the m > k smallest integer, return None.
@@ -72,9 +72,7 @@ print(nth_smallest([12,6,4,32],2))
 print("")
 print("Task 5")
 # Create a function that takes a list of non-negative integers and strings and return a new list without the strings.
-
 # Notes
-
 # Zero is a non-negative integer.
 # The given list only has integers and strings.
 # Numbers in the list should not repeat.

@@ -26,6 +26,8 @@ while True:
     user_select = input("Please make your choise R, T, C, or Q : ")
 
     match user_select:
+        case "Q" | "q":
+            break
         case "R" | "r":
             side1 = input("Please enter the length of the rectangle : ")
             side2 = input("Please enter the width of the rectangle : ")
@@ -37,8 +39,6 @@ while True:
         case "C" | "c":
             radius = input("Please enter the radius of the circle : ")
             area_circle(radius)
-        case "Q" | "q":
-            break
         case _:
             print("Your made the wrong choise, let's try again ...")
             continue
