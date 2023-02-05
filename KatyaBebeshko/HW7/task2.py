@@ -13,7 +13,6 @@ def circleArea(radius):
     PI=3.14
     return PI*radius**2
 
-
 while True:
     figure = input("Do you want to calculate area of rectangle, triangle or circle? (Type 'exit' to finish): ")
     match figure:
