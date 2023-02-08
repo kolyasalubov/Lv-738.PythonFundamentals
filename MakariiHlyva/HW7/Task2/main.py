@@ -93,5 +93,7 @@ def main_menu():
             break
     return object_type
 
+
+
 print(main_menu.__doc__)
 enter_data(main_menu())
