@@ -1,4 +1,4 @@
-password = input("Write your password")
+password = input("Write your password ")
 
 while True:
     try:
@@ -12,4 +12,14 @@ while True:
     except AssertionError:
         print("Too weak password. Try again!")
         password = input("Write your password")
-    
+
+
+#other variant
+
+import re
+
+password = input("Other variant. Write your password ")
+
+lst = [r'.{6,16}', r'[A-Z]', r'[a-z]', r'[0-9]', r'\W']
+lst2 = [(re.findall(i, password)) for i in lst]
+print("Secure password!" if all(lst2) else "Insecure password")
