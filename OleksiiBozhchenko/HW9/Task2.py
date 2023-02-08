@@ -24,7 +24,6 @@ gameDisplay=pygame.display.set_mode((WIDTH_DISPLAY, HEIGHT_DISPLAY), pygame.RESI
 
 pygame.display.set_caption("My first game")
 
-
 run = True
 clock = pygame.time.Clock()
 
@@ -44,7 +43,6 @@ while run:
     if keys[pygame.K_UP] and COORD_Y > DELTA_STEP:
         COORD_Y = COORD_Y - DELTA_STEP
     if keys[pygame.K_DOWN] and COORD_Y < (HEIGHT_DISPLAY - (HEIGHT_RECTANGLE + DELTA_STEP)):
-    # if keys[pygame.K_DOWN]:
         COORD_Y = COORD_Y + DELTA_STEP
 
 
