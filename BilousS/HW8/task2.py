@@ -23,3 +23,6 @@ password = input("Other variant. Write your password ")
 lst = [r'.{6,16}', r'[A-Z]', r'[a-z]', r'[0-9]', r'\W']
 lst2 = [(re.findall(i, password)) for i in lst]
 print("Secure password!" if all(lst2) else "Insecure password")
+
+
+
