@@ -25,6 +25,6 @@ print(f"Even numbers are: {even}\nOdd numbers are: {odd}\nNon divisible numbers 
 # # (In this example I experimented with List Comprehension)
 # #
 even1  = [i for i in range(1,10) if i%2 == 0]
-odd1 = [i for i in range(1,10) if i%3 == 0]
+odd1 = [i for i in range(1,10) if i%2 == 1 and i%3 == 0]
 other1 = [i for i in range(1,10) if i%2 != 0 and i%3 != 0]
 print(f"Even numbers are: {even1}\nOdd numbers are: {odd1}\nNon divisible numbers are: {other1}")
