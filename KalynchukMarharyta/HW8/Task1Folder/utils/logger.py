@@ -1,4 +1,4 @@
 def log_in_file():
-    pass 
+    print('loginfile')
 
 __all__ = ['log_in_file']
