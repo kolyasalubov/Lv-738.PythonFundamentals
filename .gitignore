@@ -1,7 +1,11 @@
+
 # Some foled
 
 .idea
 .idea/
+
+
+*.DS_Store
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -132,4 +136,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# MacOS system files
 .DS_Store
+
+.idea
+
+# VisualStudo files
+.vscode/
+
