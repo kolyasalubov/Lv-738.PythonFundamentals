@@ -6,11 +6,11 @@ def check_is_number(number, random_number, counter):
             check = int(number)
             if type(check) is int and (check) >= 1 and check < 100:
                 if check == random_number:
-                    return "YOU WINN"
+                    return "YOU WINN,YOU ARE CRAZY WIZARD"
                 elif check > random_number:
-                    return f"Your {number} is not corect and over, {10 - counter} tries left"
+                    return f"Your number({number}) is not corect and over, {10 - counter} tries left"
                 elif check < random_number:
-                    return f"Your {number} is not corect and less, {10 - counter} tries left"
+                    return f"Your number({number}) is not corect and less, {10 - counter} tries left"
             else:
                 raise ValueError
     except ValueError:
