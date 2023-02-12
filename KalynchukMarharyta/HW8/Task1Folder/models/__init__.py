@@ -1,4 +1,4 @@
-import admin
-import user 
+from . import admin
+from . import user 
 
-__all__ = ['create_admin', 'create_user']
+__all__ = ['admin', 'user']
