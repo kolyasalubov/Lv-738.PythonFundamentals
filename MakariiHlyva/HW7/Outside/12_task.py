@@ -1,0 +1,7 @@
+#-----------Is this my tail?------------#
+
+def correct_tail(body, tail):
+    if body[len(body) - 1] == tail:
+        return True
+    else:
+        return False
