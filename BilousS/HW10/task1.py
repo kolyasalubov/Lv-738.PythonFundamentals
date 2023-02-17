@@ -8,11 +8,6 @@ class Poligon:
         return self.lst1
 
 class Rectangle(Poligon):
-    def __init__(self, number_of_sides):
-        super().__init__(number_of_sides)
-
-    def add(self):
-        super().add()
 
     def validate(self):
         if len(set(self.lst1)) > 2:
