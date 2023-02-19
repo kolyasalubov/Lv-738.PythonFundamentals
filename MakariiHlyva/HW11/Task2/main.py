@@ -1,8 +1,18 @@
+class DaysError(Exception):
+    def __init__(self, data):
+        self.data = data
+
+    def __str__(self):
+        return repr(self.data)
+
+
 def main_menu():
     while True:
         try:
             day = int(input("Please, enter number od day from 1 to 7: "))
             check_data(day)
+        except DaysError as eroor:
+            print(eroor)
         except ValueError as error:
             print("Error: ", error)
         else:
@@ -11,9 +21,9 @@ def main_menu():
 
 def check_data(day):
     if day > 7:
-        raise ValueError(f"Are you crazy? Week doesn't have {day} days")
+        raise DaysError(f"Are you crazy? Week doesn't have {day} days")
     elif day <= 0:
-        raise ValueError(f"You have entered not positive number: {day}")
+        raise DaysError(f"You have entered not positive number: {day}")
 
 
 
