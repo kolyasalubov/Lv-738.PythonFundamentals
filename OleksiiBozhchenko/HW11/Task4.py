@@ -15,5 +15,5 @@ try:
     else:
         raise ValueError("You entered a non-numeric value.")
 
-except(ValueError, AttributeError) as e:
+except(ValueError) as e:
     print(f"Error : {e}")
