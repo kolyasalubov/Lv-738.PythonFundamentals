@@ -5,9 +5,9 @@ def what_age(age):
         if age <0:
             raise ValueError
         elif age%2==0 :
-            print(f"Your age {age} is odd")  
+            print(f"Your age {age} is even")  
         elif age%2!=0 :
-            print(f"Your age {age} is even")
+            print(f"Your age {age} is odd")
     except ValueError :
         print("Imposible age")
 
