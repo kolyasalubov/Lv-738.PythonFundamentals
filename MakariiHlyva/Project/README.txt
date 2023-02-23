@@ -9,7 +9,7 @@ BOT_TOKEN="YOUR PERSONAL TELEGRAM TOKEN"
 5 instal telebot:           pip install pyTelegramBotAPI
 6 install dotenv:           pip install python-dotenv
 7 install pathlib:          pip install pathlib
-8 file hosts.txt after lunching will be created automaticaly, but it will be empty, so create some data in bot
+8 file hosts.txt after lunching will be created automaticaly, and bot will add one test item
 
 This Telegram bot:
 1 Can show list of hosts
