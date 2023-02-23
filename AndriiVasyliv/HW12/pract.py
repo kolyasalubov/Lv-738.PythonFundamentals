@@ -127,3 +127,25 @@
 
 
 ################################
+
+
+def decor_1(func):
+    def inner(*args, **kwargs):
+        print("<\ ^^^^^^^ /> ")
+        func(*args, **kwargs)
+        print("<\ ______ />")
+        return inner
+    
+def decor_2(func):
+    def inner(*args, **kwargs):
+        print("# tomato # ")
+        func(*args, **kwargs)
+        print("~ salad ~")
+        return inner
+    
+@decor_1
+@decor_2
+def sandwich(canapa):
+    print(canapa)
+        
+sandwich("meat")
