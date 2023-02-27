@@ -97,3 +97,9 @@ for i in range(10):
 else:
     var+=1
 print(var)
+
+import module
+module.BOILING_POINT = 100
+module.FREEZING_POINT = 0
+temperature = float(input())
+module.print_water_state(temperature)
