@@ -286,29 +286,39 @@ class Testing:
             f = self.item6.get()
             g = self.item7.get()
             i = self.item8.get()
-            self.destr_menu3()
-            self.test_beggining()
-            k = str(uuid4())
-            m = str(datetime.now())[0:-5]
-            with sq.connect("testing.db") as cons:
-                curs = cons.cursor()
-                curs.execute(f"""SELECT id_pat FROM patients WHERE full_name == '{a}' and age == '{b}'""")
-                j = curs.fetchall()
-                if j:
-                    curs.execute(f"""INSERT INTO patients_info 
-                                (id_in_tab, id_pat, time, objective_status, pulse, breathing_rate, 
-                                pressure, consciousness, concentration) 
-                                VALUES("{k}", "{j[0][0]}", "{m}", "{c}", "{d}", "{e}", "{f}", "{g}", "{i}")""")
+            len_list = []
+            for num in [a, b, c, d, f, g, i]:
+                if len(num) > 30:
+                    len_list.append(False)
                 else:
-                    j = str(uuid4())
-                    curs.execute(f"""INSERT INTO patients 
-                        (id_pat, full_name, age)
-                        VALUES("{j}", "{a}", "{b}")""")
-                    curs.execute(f"""INSERT INTO patients_info 
-                        (id_in_tab, id_pat, time, objective_status, pulse, breathing_rate, 
-                        pressure, consciousness, concentration) 
-                        VALUES("{k}", "{j}", "{m}", "{c}", "{d}", "{e}", "{f}", "{g}", "{i}")""")
-                curs.close()
+                    len_list.append(True)
+            if not all(len_list):
+                    showinfo(self.lang.warning, self.lang.warning_too_long)
+            else:
+                self.destr_menu3()
+                self.test_beggining()
+                k = str(uuid4())
+                m = str(datetime.now())[0:-6]
+                with sq.connect("testing.db") as cons:
+                    curs = cons.cursor()
+                    curs.execute(f"""SELECT id_pat FROM patients WHERE full_name == '{a}' and age == '{b}'""")
+                    j = curs.fetchall()
+                    if j:
+                        curs.execute(f"""INSERT INTO patients_info 
+                                    (id_in_tab, id_pat, time, objective_status, pulse, breathing_rate, 
+                                    pressure, consciousness, concentration) 
+                                    VALUES("{k}", "{j[0][0]}", "{m}", "{c}", "{d}", "{e}", "{f}", "{g}", "{i}")""")
+                    else:
+                        j = str(uuid4())
+                        curs.execute(f"""INSERT INTO patients 
+                            (id_pat, full_name, age)
+                            VALUES("{j}", "{a}", "{b}")""")
+                        curs.execute(f"""INSERT INTO patients_info 
+                            (id_in_tab, id_pat, time, objective_status, pulse, breathing_rate, 
+                            pressure, consciousness, concentration) 
+                            VALUES("{k}", "{j}", "{m}", "{c}", "{d}", "{e}", "{f}", "{g}", "{i}")""")
+                    curs.close()
+
 
     def select_all(self):
         """Menu to enter patient's name to find information"""

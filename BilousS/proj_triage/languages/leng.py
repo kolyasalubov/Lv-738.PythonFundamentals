@@ -8,6 +8,7 @@ pr_menu1 = "Return to the previous menu"
 show_info = "Watch patient's data"
 no_pat = "There is no this patient in the table"
 warning_field_required = "The input fields 'Full name' and 'Age' are required"
+warning_too_long = "No more than 30 characters in each input field!"
 delete_text = "Delete all patient's data"
 warning = "Warning!"
 
