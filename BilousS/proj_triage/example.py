@@ -30,7 +30,9 @@ with sq.connect("testing.db") as con:
 class Testing:
     pat_names_list = []
     delete_list = []
+
 # Import languages funktions
+
     def imp_rus(self):
         """import Russian"""
         def inner():
@@ -96,10 +98,7 @@ class Testing:
     def db_menu(self):
         """Create menu connecting with data base"""
         self.destr_menu2()
-        # try:
-        #     self.destr_name_print()
-        # except AttributeError:
-        #     pass
+
         self.print_question(self.lang.menu1, 0, 1, 1)
 
         self.watch_patients_list = tk.Button(self.win, text=self.lang.view, font=("Arial", 14), command=self.select_patients)
@@ -107,7 +106,6 @@ class Testing:
 
         self.watch_patients_list.grid(row=2, column=1, stick="wens", padx=5, pady=5)
         self.find_the_patient.grid(row=3, column=1, stick="wens", padx=5, pady=5)
-
 
         self.previous_menu_in_db = tk.Button(self.win, text=self.lang.pr_menu, font=("Arial", 14),
                                                command=self.prev_menu_from_db)
@@ -269,10 +267,6 @@ class Testing:
         self.db_menu()
 
     def return_from_list_pations_names(self):
-        # try:
-        #     self.destr_menu3()
-        # except:
-        #     pass
         for i in self.pat_names_list:
             i.destroy()
         self.return_menu.destroy()
@@ -297,7 +291,6 @@ class Testing:
             curs = cons.cursor()
             curs.execute(f"""SELECT id_pat FROM patients WHERE full_name == '{a}' and age == '{b}'""")
             j = curs.fetchall()
-            print(j)
             if j:
                 curs.execute(f"""INSERT INTO patients_info 
                             (id_in_tab, id_pat, time, objective_status, pulse, breathing_rate, 
@@ -317,7 +310,6 @@ class Testing:
     def select_all(self):
         """Menu to enter patient's name to find information"""
         self.destr_db_menu()
-        #self.destr_name_print()
         self.del_pat_name_age_list = []
         self.print_question(self.lang.pr_name, 1, 1, 1)
         self.del_pat_name_age_list.append(self.question)
@@ -391,7 +383,6 @@ class Testing:
         self.destr_name_print()
         for i in self.delete_list:
             i.destroy()
-            # self.delete_list.remove(i)
             self.return_menu.destroy()
             self.db_menu()
 
@@ -415,13 +406,6 @@ class Testing:
                 a = " ".join(i)
                 print(a)
                 self.print_question(a, e, 0, 1)
-                # print(self.question['text'])
-                # for i in self.question['text']:
-                #     print(i)
-                #     if i in "{}":
-                #         a['text'] = a['text'].replace(i, "")
-                # print(a['text'])
-                # a = a['text'].split(" ")
                 self.pat_names_list.append(self.question)
                 self.deleter = tk.Button(self.win, text=self.lang.delete_text, font=("Arial", 12),
                                          command=lambda : self.del_pat(self.question))
@@ -444,8 +428,6 @@ class Testing:
 
     def destr_name_print(self) :
         """Destroy Label, Entry and returning-button in patient's name-entry-menu"""
-        #self.question.destroy()
-        #self.question.destroy()
         for i in self.del_pat_name_age_list:
             i.destroy()
         self.pat_name.destroy()
@@ -456,22 +438,9 @@ class Testing:
 
     def del_pat(self, a):
         ind = a['text'].rfind(" ")
-        print(ind)
         name_text = a['text'][:ind]
         age_text = a['text'][(ind+1)::]
-        print(name_text)
-        print(age_text)
-        #print(type(a['text']))
-        # for i in range(0, len( a['text']), -1):
-        #     print(i)
-        #     if a['text'][i] == " ":
-        #         age_text = a['text'][i+1::]
-        #         print(age_text)
-        #         name_text = a['text'][::i]
-        #         print(name_text)
-        #         break
-        #print(age_text)
-        #print(name_text)
+
         with sq.connect("testing.db") as con:
             cur = con.cursor()
             cur.execute(f"""SELECT id_pat FROM patients WHERE full_name=='{name_text}' AND age = '{age_text}'""")
@@ -543,7 +512,6 @@ class Testing:
 
     def test_beggining(self):
         """The begining of test. First question"""
-        #self.destr_menu1()
         self.destr_menu2()
         self.print_question(self.lang.stand, 0, 1, 3)
         self.create_yes_no(self.green, self.no)
