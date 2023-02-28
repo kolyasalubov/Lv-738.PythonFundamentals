@@ -7,6 +7,7 @@ pr_age = "Print patient's age"
 pr_menu1 = "Return to the previous menu"
 show_info = "Watch patient's data"
 no_pat = "There is no this patient in the table"
+warning_field_required = "The input fields 'Full name' and 'Age' are required"
 delete_text = "Delete all patient's data"
 warning = "Warning!"
 

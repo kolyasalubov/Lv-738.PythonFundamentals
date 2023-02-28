@@ -107,6 +107,7 @@ class Testing:
         self.watch_patients_list.grid(row=2, column=1, stick="wens", padx=5, pady=5)
         self.find_the_patient.grid(row=3, column=1, stick="wens", padx=5, pady=5)
 
+
         self.previous_menu_in_db = tk.Button(self.win, text=self.lang.pr_menu, font=("Arial", 14),
                                                command=self.prev_menu_from_db)
         self.previous_menu_in_db.grid(row=4, column=1, stick="wens", padx=5, pady=5)
@@ -198,7 +199,6 @@ class Testing:
         self.win.grid_columnconfigure(1, minsize=100)
         self.win.grid_rowconfigure(0, minsize=100)
 
-
     def instruct(self):
         """Create menu to write data of the patient"""
         self.destr_menu2()
@@ -277,35 +277,38 @@ class Testing:
     def submit_data(self):
         a = self.item1.get()
         b = self.item2.get()
-        c = self.item3.get()
-        d = self.item4.get()
-        e = self.item5.get()
-        f = self.item6.get()
-        g = self.item7.get()
-        i = self.item8.get()
-        self.destr_menu3()
-        self.test_beggining()
-        k = str(uuid4())
-        m = str(datetime.now())[0:-5]
-        with sq.connect("testing.db") as cons:
-            curs = cons.cursor()
-            curs.execute(f"""SELECT id_pat FROM patients WHERE full_name == '{a}' and age == '{b}'""")
-            j = curs.fetchall()
-            if j:
-                curs.execute(f"""INSERT INTO patients_info 
-                            (id_in_tab, id_pat, time, objective_status, pulse, breathing_rate, 
-                            pressure, consciousness, concentration) 
-                            VALUES("{k}", "{j[0][0]}", "{m}", "{c}", "{d}", "{e}", "{f}", "{g}", "{i}")""")
-            else:
-                j = str(uuid4())
-                curs.execute(f"""INSERT INTO patients 
-                    (id_pat, full_name, age)
-                    VALUES("{j}", "{a}", "{b}")""")
-                curs.execute(f"""INSERT INTO patients_info 
-                    (id_in_tab, id_pat, time, objective_status, pulse, breathing_rate, 
-                    pressure, consciousness, concentration) 
-                    VALUES("{k}", "{j}", "{m}", "{c}", "{d}", "{e}", "{f}", "{g}", "{i}")""")
-            curs.close()
+        if not a or not b:
+            showinfo(self.lang.warning, self.lang.warning_field_required)
+        else:
+            c = self.item3.get()
+            d = self.item4.get()
+            e = self.item5.get()
+            f = self.item6.get()
+            g = self.item7.get()
+            i = self.item8.get()
+            self.destr_menu3()
+            self.test_beggining()
+            k = str(uuid4())
+            m = str(datetime.now())[0:-5]
+            with sq.connect("testing.db") as cons:
+                curs = cons.cursor()
+                curs.execute(f"""SELECT id_pat FROM patients WHERE full_name == '{a}' and age == '{b}'""")
+                j = curs.fetchall()
+                if j:
+                    curs.execute(f"""INSERT INTO patients_info 
+                                (id_in_tab, id_pat, time, objective_status, pulse, breathing_rate, 
+                                pressure, consciousness, concentration) 
+                                VALUES("{k}", "{j[0][0]}", "{m}", "{c}", "{d}", "{e}", "{f}", "{g}", "{i}")""")
+                else:
+                    j = str(uuid4())
+                    curs.execute(f"""INSERT INTO patients 
+                        (id_pat, full_name, age)
+                        VALUES("{j}", "{a}", "{b}")""")
+                    curs.execute(f"""INSERT INTO patients_info 
+                        (id_in_tab, id_pat, time, objective_status, pulse, breathing_rate, 
+                        pressure, consciousness, concentration) 
+                        VALUES("{k}", "{j}", "{m}", "{c}", "{d}", "{e}", "{f}", "{g}", "{i}")""")
+                curs.close()
 
     def select_all(self):
         """Menu to enter patient's name to find information"""
@@ -333,7 +336,6 @@ class Testing:
         self.win.grid_rowconfigure(2, minsize=50)
         self.win.grid_rowconfigure(3, minsize=50)
         self.win.grid_rowconfigure(4, minsize=50)
-
 
     def select_info(self):
         """Show patients information in tab"""
@@ -379,13 +381,6 @@ class Testing:
             else:
                 showinfo(self.lang.warning, self.lang.no_pat)
 
-    def delete_pat_info_tab(self):
-        self.destr_name_print()
-        for i in self.delete_list:
-            i.destroy()
-            self.return_menu.destroy()
-            self.db_menu()
-
     def select_patients(self):
         self.destr_db_menu()
         try:
@@ -406,6 +401,7 @@ class Testing:
                 a = " ".join(i)
                 print(a)
                 self.print_question(a, e, 0, 1)
+
                 self.pat_names_list.append(self.question)
                 self.deleter = tk.Button(self.win, text=self.lang.delete_text, font=("Arial", 12),
                                          command=lambda : self.del_pat(self.question))
@@ -426,6 +422,13 @@ class Testing:
 
 #Destroy-funktions
 
+    def delete_pat_info_tab(self):
+        self.destr_name_print()
+        for i in self.delete_list:
+            i.destroy()
+            self.return_menu.destroy()
+            self.db_menu()
+
     def destr_name_print(self) :
         """Destroy Label, Entry and returning-button in patient's name-entry-menu"""
         for i in self.del_pat_name_age_list:
@@ -435,12 +438,13 @@ class Testing:
         self.return_prev_menu.destroy()
         self.view_info.destroy()
 
-
     def del_pat(self, a):
         ind = a['text'].rfind(" ")
+        print(ind)
         name_text = a['text'][:ind]
         age_text = a['text'][(ind+1)::]
-
+        print(name_text)
+        print(age_text)
         with sq.connect("testing.db") as con:
             cur = con.cursor()
             cur.execute(f"""SELECT id_pat FROM patients WHERE full_name=='{name_text}' AND age = '{age_text}'""")
@@ -507,7 +511,6 @@ class Testing:
         self.button_yes.destroy()
         self.button_no.destroy()
 
-
 # Test-funktions
 
     def test_beggining(self):
@@ -539,15 +542,12 @@ class Testing:
         self.print_question(self.lang.breath3, 0, 1, 3)
         self.create_yes_no(self.red, self.black)
 
-
     def no3(self):
         self.destr_test1()
         self.print_question(self.lang.age, 0, 1, 3)
         self.create_yes_no(self.yes4, self.black)
 
-
     def yes3(self):
-
         self.destr_test1()
         self.print_question(self.lang.conscious, 0, 1, 3)
         self.create_yes_no(self.yellow, self.red)
@@ -571,8 +571,6 @@ class Testing:
         self.destr_test1()
         self.print_question(self.lang.airways, 0, 1, 3)
         self.create_yes_no(self.yes1, self.no1)
-
-
 
     def start(self):
         self.win.mainloop()
