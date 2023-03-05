@@ -18,6 +18,10 @@ class Employee():
         self.salary = salary
         Employee.count += 1
 
+    def __del__(self):
+        Employee.count -= 1
+
+
     def counter():
         return print(Employee.count)
 
@@ -42,6 +46,14 @@ emp1.__class__.counter()
 emp1.info()
 # emp1.class_info()
 Employee.class_info()
+
+print(emp2)
+print(isinstance (emp2, Employee))
+del emp2
+# print(isinstance(emp2, Employee))
+
+Employee.counter()
+
 
 
 
