@@ -77,15 +77,3 @@
 #     print("-meat-")
 
 # print(burger())
-
-def first(func):
-    def inner():
-        return "123"+func()+"123"
-    return inner
-
-
-@first
-def burger():
-    return("-meat-")
-
-print(burger())
