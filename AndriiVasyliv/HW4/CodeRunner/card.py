@@ -82,10 +82,11 @@
 
 # print(makes10(2, 2))
 
+################################
 
-def fibo_element(n):
-    if n in (1,2):
-        return 1
-    return fibo_element(n-1) + fibo_element(n-2)
+# def fibo_element(n):
+#     if n in (1,2):
+#         return 1
+#     return fibo_element(n-1) + fibo_element(n-2)
 
-print(fibo_element(6))
+# print(fibo_element(6))

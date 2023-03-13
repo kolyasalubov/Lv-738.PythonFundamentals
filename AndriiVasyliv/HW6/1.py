@@ -1,13 +1,16 @@
-# # Write a function that takes a credit card number and only displays the last four characters. 
-# # The rest of the card number must be replaced by ************
+######## EVEN NUMBERS
+# for num in range(1, 11):
+#     if num % 2 == 0:
+#         print(num)
+        
+######## ODD NUMBERS
 
-# def card_hide(card):
-    
-#     card_max = "1231123412341234"
-#     if len(card) < len(card_max):
-#         return "Invalid card"
-    
-#     else:
-#         return card.replace(card[0:12], "************")
+# for num in range(0, 11):
+#     if num % 2 == 1 and num % 3 == 0:
+#         print(num)
 
+########### NOT %2 and %3
 
+for num in range(0, 11):
+    if num % 3 != 0 and num % 2 != 0:
+        print(num)
