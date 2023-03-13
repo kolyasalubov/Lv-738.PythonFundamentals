@@ -107,8 +107,3 @@ def correct_tail(body, tail):
     return body.endswith(tail)
 print(correct_tail("Snake","e"))
 print(correct_tail("Mouse","f"))
-
-def correct_tail(body, tail):
-    return True if body[-1] == tail else False
-print(correct_tail("Snake","e"))
-print(correct_tail("Mouse","f"))
