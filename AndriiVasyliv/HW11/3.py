@@ -1,4 +1,3 @@
-#Time to practice 3
 
 try:
         a, b = input("Enter two numbers, separated by a comma: ").split()
